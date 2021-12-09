@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "flex-end"
     },
     total: {
-      fontWeight: theme.typography.fontWeightBold,
       fontSize: theme.typography.fontSize * 2
     }
   })
