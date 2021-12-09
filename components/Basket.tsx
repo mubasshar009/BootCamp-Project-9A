@@ -14,6 +14,8 @@ import {
 import DeleteIcon from "@material-ui/icons/Delete"
 
 import { ProductItem } from "../global"
+import { useSelector } from "react-redux"
+import { remove, store } from "../store"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,8 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Basket = () => {
   const classes = useStyles({})
-  const products = [] // TODO
-
+  const products = useSelector((state:ProductItem[]) => state)
   return (
     <>
       <Typography component="h2" variant="h6" color="primary" gutterBottom>
@@ -78,6 +79,7 @@ const Basket = () => {
                     aria-label="delete"
                     onClick={() => {
                       /* Remove from basket */
+                      store.dispatch(remove({id:product.id}))
                     }}
                   >
                     <DeleteIcon />
